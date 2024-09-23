@@ -4,22 +4,10 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: first
+        - id: api-service
           predicates:
-            - Path=/first/
-          uri: localhost:8081
-        - id: second
-          predicates:
-            - Path=/second/
-          uri: localhost:8082
-        - id: internal
-          predicates:
-            - Path=/process/
-          uri: localhost:8080
-        - id : auth-server
-          predicates:
-            - Path=/login/
-          uri: localhost:8088
+            - Path=/api-service/**
+          uri: http://localhost:3000
 
 
   main:
